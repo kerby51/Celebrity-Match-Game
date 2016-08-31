@@ -1,10 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Celebrity Match</title>
-</head>
+ <head>
+   <link href="reset.css" rel="stylesheet" type="text/css">
+   <link rel="stylesheet" type="text/css" href="styles.css">
+   <link href="https://fonts.googleapis.com/css?family=Redressed" rel="stylesheet">
+   <meta charset="utf-8"/>
+   <title>Earworm</title>
+ </head>
 <body>
-  <h1>My Game!</h1>
+  <header>
+     <h1>EARWORM &#9835</h1>
+     <img src="ear.png" id="ear">
+     <p class="instructions">Test your music knowledge!  Match the song to their artist by placing the artist's corresponding letter next to the song they wrote.</p>
+  </header>
+  <form class="lists">
+     <div class="song-list">
+       <ul>
+         <li class="song-list-title">Song List</li>
+         <li><input type="text" class="input"></li>
+       </ul>
+     </div>
+     <div class="artist-list">
+       <ul>
+       </ul>
+     </div>
+  </form>
 
+<script src="app.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
+
+
 </html>
