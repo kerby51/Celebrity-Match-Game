@@ -5,7 +5,16 @@ body {
 
 header {
   text-align: center;
-  /*position: relative;*/
+  position: fixed;
+  margin-top: 0em;
+  padding-top: 1em;
+  padding-bottom: .5em;
+  width: 100%;
+  background-color: #F0F4F5;
+  /*border-bottom: 1px solid red;*/
+  border-top: 3px dotted #000;
+  border-bottom: 3px dotted #000;
+  box-shadow: inset 0 -1px 0 0 #000, inset 0 1px 0 0 #000, 0 1px 0 0 #000, 0 -1px 0 0 #000;
 }
 
 h1 {
@@ -13,6 +22,14 @@ h1 {
   font-size: 6rem;
   text-align: center;
   margin-top: 1em;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 1.1rem;
+  padding-bottom: 0.75em;
+  margin-top: -1em;
+  color: blue;
 }
 
 #ear {
@@ -26,8 +43,8 @@ h1 {
 }
 
 .instructions {
-  padding-bottom: 50px;
-  width: 54%;
+  padding-bottom: 10px;
+  width: 48%;
   font-size: 1.5rem;
   text-align: center;
   padding-top: 0px;
@@ -40,28 +57,110 @@ h1 {
 
 .lists {
   width: 70%;
-  height: 40rem;
+  height: 45rem;
   display: inline-block;
   text-align: center;
   margin-left: 12rem;
+  margin-top: 17em;
   box-sizing: content-box;
  /* float: left;*/
 }
 
-.song-list {
+.song-list-column {
   padding: .2rem;
   background-color: #C9CFD1;
-  height: 40rem;
+  height: 20rem;
   width: 25rem;
   border: 1px solid black;
   float: left;
+  /*padding: 1em;*/
+  font-family: 'Cherry Swash', cursive;
+  border-radius: 3em;
+
 }
 
-.artist-list {
+.artist-list-column {
   padding: .2rem;
   background-color: #C9CFD1;
-  height: 40rem;
+  height: 34rem;
   width: 25rem;
   border: 1px solid black;
   float: right;
+  border-radius: 3em;
+}
+
+.note {
+  margin: 0 auto;
+  z-index: -3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 5em;
+  border-radius: 50%;
+}
+
+.artists {
+  padding: .3em;
+  font-family: 'Cherry Swash', cursive;
+  /*font-size: 2em;*/
+}
+
+.buttons {
+  font-family: 'Cherry Swash', cursive;
+  font-size: 1.3em;
+  border: 1px solid red;
+  background-color: white;
+  border-radius: .5em;
+ /* width: 14em;
+  height: 11em;*/
+}
+
+#artist-list-title {
+  font-size: 2em;
+  font-family: 'Cherry Swash', cursive;
+  padding-top: 0.75em;
+  padding-bottom: 0.5em;
+
+}
+
+.song-list-title {
+  font-size: 2em;
+  padding: 0.75em;
+}
+
+.pics {
+  width: 14em;
+  height: 11em;
+}
+
+.startButton {
+  font-size: 1.2em;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+/*.startButton {
+  font-size: 1.2em;
+  background-color: red;
+  color: white;
+  position: absolute;
+  margin-top: 2em;
+  margin-left: 3em;
+  /*margin: 0 auto;
+  top: 32%;
+  left: 45.5%;
+  /*z-index: -1;*/
+
+
+#song-in-play {
+  background-color: white;
+  width: 55%;
+  height: 4em;
+  font-size: 1.3em;
+  margin: 0 auto;
+  text-align: center;
+  border: 4px solid yellow;
+  margin-top: 6%;
+  padding-top: 3em;
 }
