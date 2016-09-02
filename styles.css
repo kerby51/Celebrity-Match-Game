@@ -22,6 +22,7 @@ h1 {
   font-size: 6rem;
   text-align: center;
   margin-top: 1em;
+
   margin: 0 auto;
 }
 
@@ -96,7 +97,8 @@ h3 {
   top: 50%;
   left: 50%;
   font-size: 5em;
-  border-radius: 50%;
+  border-radius: 30%;
+
 }
 
 .artists {
@@ -140,19 +142,6 @@ h3 {
   text-align: center;
 }
 
-/*.startButton {
-  font-size: 1.2em;
-  background-color: red;
-  color: white;
-  position: absolute;
-  margin-top: 2em;
-  margin-left: 3em;
-  /*margin: 0 auto;
-  top: 32%;
-  left: 45.5%;
-  /*z-index: -1;*/
-
-
 #song-in-play {
   background-color: white;
   width: 55%;
@@ -163,4 +152,53 @@ h3 {
   border: 4px solid yellow;
   margin-top: 6%;
   padding-top: 3em;
+}
+
+/*#score-box {
+  border: 3px solid black;
+  font-weight: bold;
+  color: red;
+  font-family: Helvetica;
+  width: 130px;
+  height: 100px;
+  font-size: 1.5rem;
+  padding: 3px;
+  margin-top: 6rem;
+  margin-right: 3rem;
+  float: right;
+}*/
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
