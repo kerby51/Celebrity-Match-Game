@@ -1,4 +1,3 @@
-console.log('working!');
 const Songs = {
   song1: {
     songTitle: ' "Even Flow" ',
@@ -53,11 +52,16 @@ const Songs = {
 };
 
 
-const body = document.querySelector('body');
-const songLocation = document.querySelector('.song-list-column');
+let body = document.querySelector('body');
+let songLocation = document.querySelector('.song-list-column');
 let result;
 let guessedNumbers = [];
-let forceGet = true;
+let modal = document.getElementById('myModal');
+let modalScore = document.getElementsByClassName('modal-score');
+let buttons = document.querySelectorAll('.buttons');
+let span = document.getElementsByClassName('close')[0];
+let activeSong = {};
+let score = 0;
 
 
 function startGame() {
@@ -66,14 +70,16 @@ function startGame() {
 startGame();
 
 
-function gameOver() {
-  // let modal = document.getElementById('myModal');
-  if (guessedNumbers.length >=10) {
-    alert("Game Over! You got x out of 10 correct!");
-   // $("#myModal").modal();//
-   }
-   window.reload();
-}
+// function gameOver() {
+//   if (guessedNumbers.length >= 10) {
+//     document.querySelector('.modal-score').innerHTML = 'You Scored ' + score + ' out of 10!';
+//     modal.style.display = 'block';
+//   };
+//   span.onclick = function() {
+//     modal.style.display = 'none';
+//   };
+// }
+
 
 function populateSong() {
   let newSong = document.createElement('div');
@@ -101,108 +107,79 @@ function populateSong() {
     }
     let currentSong = 'song' + number;
     result = Songs[currentSong].songTitle;
+    activeSong = Songs[currentSong];
     return result;
   };
   newSong.innerHTML = randomSong();
 }
 
 
-
-// function keepScore() {
-      // let scoreBox = document.querySelector('#score-box');
-//   if answer is correct or true, store 1 point in a score array
-//   when a matching artist is clicked, the score/point is stored
-      // create score box div with id #score-box to append to header to show running score  1/1, 2/2, 2/3, 3/4, etc.
-// }
 function artistClick() {
-  // document.querySelector('.buttons').addEventListener('click', gameRules);
-  document.body.querySelector('#button1').addEventListener('click', populateSong);
-  document.body.querySelector('#button2').addEventListener('click', populateSong);
-  document.body.querySelector('#button3').addEventListener('click', populateSong);
-  document.body.querySelector('#button4').addEventListener('click', populateSong);
-  document.body.querySelector('#button5').addEventListener('click', populateSong);
-  document.body.querySelector('#button6').addEventListener('click', populateSong);
-  document.body.querySelector('#button7').addEventListener('click', populateSong);
-  document.body.querySelector('#button8').addEventListener('click', populateSong);
-  document.body.querySelector('#button9').addEventListener('click', populateSong);
-  document.body.querySelector('#button10').addEventListener('click', populateSong);
-  document.body.querySelector('#button1').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button2').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button3').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button4').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button5').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button6').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button7').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button8').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button9').addEventListener('click', removeSongOfPlay);
-  document.body.querySelector('#button10').addEventListener('click', removeSongOfPlay);
+  const buttons = document.querySelectorAll('.buttons');
+  for (let button of buttons) {
+    button.addEventListener('click', checkAnswer);
+  }
+  for (let button of buttons) {
+    button.addEventListener('click', populateSong);
+  }
+  for (let button of buttons) {
+    button.addEventListener('click', removeSongOfPlay);
+  }
+  // button.addEventListener('click', function(){
+  //   populatesong()
+  //   checkanswer()
+  //   removeSongOfPlay()
+  // })
 }
 artistClick();
 
 
 function removeSongOfPlay() {
-    let buttons = body.querySelector('.buttons');
-    let songInPlay = body.querySelector('#song-in-play');
-    buttons.onclick = function() {
-      songInPlay.parentNode.removeChild(songInPlay);
+  let buttons = body.querySelectorAll('.buttons');
+  let songInPlay = body.querySelector('#song-in-play');
+  buttons.onclick = function() {
+    songInPlay.parentNode.removeChild(songInPlay);
       // return false;
-    }
-      return buttons.onclick();
+  };
+  return buttons.onclick();
 }
-removeSongOfPlay();
 
 
-// function gameRules() {
-//       let answer = ;
-      // for (let song in Songs);
-//       if (Songs[currentSong].songTitle === Songs[currentSong].artist) {
-//       console.log('true!');
-//     } else {
-//       answer = false;
-//     }
-// }
-//   gameRules();
+function checkAnswer() {
+  // if (document.querySelectorAll('.buttons').innerText === activeSong.artist) {
+  // const songLocation = document.querySelector('.song-list-column');
+  if (event.target.innerText === activeSong.artist) {
+    score += 1;
+    document.getElementById('actual-score').innerHTML = score + '/10';
+    let $blinkColumn = $('.song-list-column');
+    setTimeout(function() {
+      $blinkColumn.addClass('flash2');
+      setTimeout(function() {
+        $blinkColumn.removeClass('flash2');
+      }, 200);
+    });
+  } else {
+    let $blinkColumn = $('.song-list-column');
+    setTimeout(function() {
+      $blinkColumn.addClass('flash');
+      setTimeout(function() {
+          $blinkColumn.removeClass('flash');
+    }, 200);
+    });
+  }
+}
 
-//    if (answer === true)
-//     if answer is true, border of .song-list-column will flash green
-//     if answer is false, border of .song-list-column will flash red
-//    when an artist is clicked the prevous Songs[song].Title is removed
-      // when an artist is clicked, activate populateSong function
-// }
+function gameOver() {
+  if (guessedNumbers.length >= 10) {
+    document.querySelector('.modal-score').innerHTML = 'You Scored ' + score + ' out of 10!';
+    modal.style.display = 'block';
+  };
+  span.onclick = function() {
+    modal.style.display = 'none';
+  };
+  window.reload();
+}
 
-// WHEN START GAME IS CLICKED, BRING IN A NEW SONG IN PLAY
-// WHEN ARTIST IS CLICKED, BRING IN A NEW SONG IN PLAY
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // for (let song in Songs) {
-    //     // console.log(Songs[song]);
-    //     if (Math.random() < 1/++count) {
-    //       result = Songs[song].songTitle;
-    //        // + Songs[song].mp3URL;
-    //     }
-    //       result = Songs[song].songTitle;
-    // }
-
- // for (let song in Songs) {
- //        // console.log(Songs[song]);
- //      let randomNumber = Math.floor(Math.random() * 9) + 1;
-
- //        let currentSong = 'song' + num;
- //        guessedSongs.push(currentSong);
- //        result = Songs[song].songTitle;
-
- //  }
 
 
 // var aud = new Audio();
@@ -210,21 +187,7 @@ removeSongOfPlay();
 // aud.play();
 
 
-// function Choice () {
-//     var box = document.getElementById("box");
-//     var yes = document.getElementById("yes");
-//     var no = document.getElementById("no");
 
-//     if (yes.clicked == true) {
-//         box.style.backgroundColor = "red";
-//     } else if (no.clicked == true) {
-//         box.style.backgroundColor = "green";
-//     } else {
-//         box.style.backgroundColor = "purple";
-//     };
-// };
-
-// Choice ();
 
 
 // function populateSong() {
@@ -267,3 +230,5 @@ removeSongOfPlay();
 //   let randomSong = function pickRandomSong() {
 
   // pressPlay.play();
+
+
