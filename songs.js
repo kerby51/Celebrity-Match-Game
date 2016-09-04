@@ -5,49 +5,49 @@ const Songs = {
     mp3URL: 'https://upload.wikimedia.org/wikipedia/en/f/f3/Even_Flow_%28Pearl_Jam_song_-_sample%29.ogg',
   },
   song2: {
-    songTitle: ' "Money Trees" ',
+    songTitle: ' "Swimming Pools" ',
     artist: 'Kendrick Lamar',
-    mp3URL: '......',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/4/4e/Kendrick_Lamar_-_Swimming_Pools_%28Drank%29.ogg',
   },
   song3: {
-    songTitle: ' "On My Own" ',
-    artist: 'Eponine from Les Miserables',
-    mp3URL: '......',
+    songTitle: ' "Rumour Has It" ',
+    artist: 'Adele',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/1/10/Adele_-_Rumour_Has_It.ogg',
   },
   song4: {
-    songTitle: ' "It Takes Two" ',
-    artist: 'Rob Base and DJ E-Z Rock',
-    mp3URL: '......',
+    songTitle: ' "Back in Black" ',
+    artist: 'AC/DC',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg',
   },
   song5: {
-    songTitle: ' "Dance Yrself Clean" ',
-    artist: 'LCD Soundsystem',
-    mp3URL: '......',
+    songTitle: ' "Karma Chameleon" ',
+    artist: 'Culture Club',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/7/7e/Culture_club-karma_chameleon-28_sec.ogg',
   },
   song6: {
-    songTitle: ' "Fade" ',
-    artist: 'Kanye West',
-    mp3URL: '......',
+    songTitle: ' "Mirrors" ',
+    artist: 'Justin Timberlake',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/b/b4/Justin_Timberlake_-_Mirrors.ogg',
   },
   song7: {
-    songTitle: ' "Mr. Brownstone" ',
-    artist: 'Guns N\' Roses',
-    mp3URL: '......',
+    songTitle: ' "Come Together" ',
+    artist: 'The Beatles',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/d/d0/Beatles_cometogether.ogg',
   },
   song8: {
-    songTitle: ' "Manic Monday" ',
-    artist: 'The Bangles',
-    mp3URL: '......',
+    songTitle: ' "Poker Face" ',
+    artist: 'Lady Gaga',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/d/d4/Lady_GaGa-Poker_Face.ogg',
   },
   song9: {
-    songTitle: ' "All Night Long" ',
-    artist: 'Lionel Richie',
-    mp3URL: '......',
+    songTitle: ' "Fight For Your Right" ',
+    artist: 'Beastie Boys',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/8/8a/Fight_for_Your_Right_by_the_Beastie_Boys.ogg',
   },
   song10: {
-    songTitle: ' "D\'yer Mak\'er" ',
-    artist: 'Led Zeppelin',
-    mp3URL: '......',
+    songTitle: ' "Walk This Way" ',
+    artist: 'Aerosmith',
+    mp3URL: 'https://upload.wikimedia.org/wikipedia/en/d/d2/Walk_This_Way_%28Aerosmith%29_sample.ogg',
   },
 };
 
@@ -70,28 +70,11 @@ function startGame() {
 startGame();
 
 
-// function gameOver() {
-//   if (guessedNumbers.length >= 10) {
-//     document.querySelector('.modal-score').innerHTML = 'You Scored ' + score + ' out of 10!';
-//     modal.style.display = 'block';
-//   };
-//   span.onclick = function() {
-//     modal.style.display = 'none';
-//   };
-// }
-
-
 function populateSong() {
   let newSong = document.createElement('div');
   newSong.setAttribute('id', 'song-in-play');
   songLocation.appendChild(newSong);
-  // let pressPlay = document.createElement('audio');
-  // pressPlay.setAttribute('src', Songs.mp3URL);
-  // newSong.appendChild(pressPlay);
-  // pressPlay.play();
   const randomSong = function pickRandomSong() {
-    // for (let song in Songs) {
-        // console.log(Songs[song]);
     let number = null;
     let randomNumber = (Math.floor(Math.random() * 10) + 1);
     if (guessedNumbers.length >= 10) {
@@ -106,8 +89,13 @@ function populateSong() {
       }
     }
     let currentSong = 'song' + number;
+    let audio = document.createElement('audio');
+    audio.setAttribute('id', 'songPlaying');
+    songLocation.appendChild(audio);
+    audio.src = Songs[currentSong].mp3URL;
     result = Songs[currentSong].songTitle;
     activeSong = Songs[currentSong];
+    audio.play();
     return result;
   };
   newSong.innerHTML = randomSong();
@@ -137,9 +125,10 @@ artistClick();
 function removeSongOfPlay() {
   let buttons = body.querySelectorAll('.buttons');
   let songInPlay = body.querySelector('#song-in-play');
+  let songPlaying = body.querySelector('#songPlaying');
   buttons.onclick = function() {
     songInPlay.parentNode.removeChild(songInPlay);
-      // return false;
+    songPlaying.parentNode.removeChild(songPlaying);
   };
   return buttons.onclick();
 }
@@ -169,6 +158,7 @@ function checkAnswer() {
   }
 }
 
+
 function gameOver() {
   if (guessedNumbers.length >= 10) {
     document.querySelector('.modal-score').innerHTML = 'You Scored ' + score + ' out of 10!';
@@ -179,13 +169,6 @@ function gameOver() {
   };
   window.reload();
 }
-
-
-
-// var aud = new Audio();
-// aud.src = 'https://upload.wikimedia.org/wikipedia/en/f/f3/Even_Flow_%28Pearl_Jam_song_-_sample%29.ogg';
-// aud.play();
-
 
 
 
@@ -222,13 +205,5 @@ function gameOver() {
 //   };
 //   newSong.innerHTML = randomSong();
 // }
-
-//   // let pressPlay = document.createElement('audio');
-//   // pressPlay.setAttribute('src', Songs.mp3URL);
-//   // newSong.appendChild(pressPlay);
-//   // pressPlay.play();
-//   let randomSong = function pickRandomSong() {
-
-  // pressPlay.play();
 
 
