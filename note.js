@@ -8,7 +8,7 @@ function flyingMusicNotes(numNotes) {
     $body.append($note);
 
     $note.animate({
-      top: Math.floor(Math.random() * 150) - 35 + '%',
+      top: Math.floor(Math.random() * 180) - 35 + '%',
       left: Math.floor(Math.random() * 125) - 30 + '%',
       opacity: 0,
     }, 2000, 'linear');
