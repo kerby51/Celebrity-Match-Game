@@ -66,6 +66,7 @@ let score = 0;
 
 function startGame() {
   body.querySelector('.startButton').addEventListener('click', populateSong);
+  body.querySelector('.startButton').addEventListener('click', artistClick);
 }
 startGame();
 
@@ -74,6 +75,9 @@ function populateSong() {
   let newSong = document.createElement('div');
   newSong.setAttribute('id', 'song-in-play');
   songLocation.appendChild(newSong);
+  let audio = document.createElement('audio');
+  audio.setAttribute('id', 'songPlaying');
+  songLocation.appendChild(audio);
   const randomSong = function pickRandomSong() {
     let number = null;
     let randomNumber = (Math.floor(Math.random() * 10) + 1);
@@ -89,9 +93,6 @@ function populateSong() {
       }
     }
     let currentSong = 'song' + number;
-    let audio = document.createElement('audio');
-    audio.setAttribute('id', 'songPlaying');
-    songLocation.appendChild(audio);
     audio.src = Songs[currentSong].mp3URL;
     result = Songs[currentSong].songTitle;
     activeSong = Songs[currentSong];
@@ -103,7 +104,6 @@ function populateSong() {
 
 
 function artistClick() {
-  const buttons = document.querySelectorAll('.buttons');
   for (let button of buttons) {
     button.addEventListener('click', checkAnswer);
   }
@@ -113,17 +113,16 @@ function artistClick() {
   for (let button of buttons) {
     button.addEventListener('click', removeSongOfPlay);
   }
-  // button.addEventListener('click', function(){
-  //   populatesong()
-  //   checkanswer()
-  //   removeSongOfPlay()
-  // })
 }
-artistClick();
+ //  button.addEventListener('click', function(){
+ //    checkAnswer();
+ //    populateSong();
+ //    removeSongOfPlay();
+ //  });
+ // }
 
 
 function removeSongOfPlay() {
-  let buttons = body.querySelectorAll('.buttons');
   let songInPlay = body.querySelector('#song-in-play');
   let songPlaying = body.querySelector('#songPlaying');
   buttons.onclick = function() {
@@ -135,8 +134,6 @@ function removeSongOfPlay() {
 
 
 function checkAnswer() {
-  // if (document.querySelectorAll('.buttons').innerText === activeSong.artist) {
-  // const songLocation = document.querySelector('.song-list-column');
   if (event.target.innerText === activeSong.artist) {
     score += 1;
     document.getElementById('actual-score').innerHTML = score + '/10';
@@ -153,7 +150,7 @@ function checkAnswer() {
       $blinkColumn.addClass('flash');
       setTimeout(function() {
           $blinkColumn.removeClass('flash');
-    }, 200);
+      }, 200);
     });
   }
 }
@@ -163,7 +160,7 @@ function gameOver() {
   if (guessedNumbers.length >= 10) {
     document.querySelector('.modal-score').innerHTML = 'You Scored ' + score + ' out of 10!';
     modal.style.display = 'block';
-  };
+  }
   span.onclick = function() {
     modal.style.display = 'none';
   };
@@ -171,39 +168,12 @@ function gameOver() {
 }
 
 
-
-
-// function populateSong() {
-//   let newSong = document.createElement('div');
-//   newSong.setAttribute('id', 'song-in-play');
-//   songLocation.appendChild(newSong);
-
-//   // let pressPlay = document.createElement('audio');
-//   // pressPlay.setAttribute('src', Songs.mp3URL);
-//   // newSong.appendChild(pressPlay);
-//   // pressPlay.play();
-//   let randomSong = function pickRandomSong() {
-//     let result;
-//     let guessedNumbers = [];
-//     for (let song in Songs) {
-//         // console.log(Songs[song]);
-//       let number = null;
-//       let randomNumber = (Math.floor(Math.random() * 10) + 1);
-//       while (!number) {
-//         if (guessedNumbers.includes(randomNumber)) {
-//           randomNumber = (Math.floor(Math.random() * 10) + 1);
-//         } else {
-//           number = randomNumber;
-//           guessedNumbers.push(number);
-//         }
-//       }
-//         // result = randomNumber;
-//       let currentSong = 'song' + number;
-//       result = Songs[currentSong].songTitle;
-//     }
-//     return result;
-//   };
-//   newSong.innerHTML = randomSong();
+// function playAgain() {
+//   let playAgain = document.querySelector('.play-again');
+//   playAgain.onclick = function() {
+//     let newScore = 0;
+//     let songInPlay = body.querySelector('#song-in-play');
+//     document.getElementById('actual-score').innerHTML = newScore + '/10';
+//     songInPlay.parentNode.removeChild(songInPlay);
+//   }
 // }
-
-
