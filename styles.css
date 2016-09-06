@@ -84,6 +84,7 @@ h3 {
   border-radius: 3em;
 }
 
+
 .note {
   margin: 0 auto;
   z-index: -3;
@@ -108,6 +109,11 @@ h3 {
   border-radius: .5em;
  /* width: 14em;
   height: 11em;*/
+}
+
+.buttons:hover {
+  background-color: pink;
+  cursor: pointer;
 }
 
 #artist-list-title {
@@ -199,24 +205,24 @@ h3 {
 .modal-score {
   color: black;
   font-weight: bold;
-  font-size: 1.8rem;
-  width: 400px;
+  font-size: 2.2rem;
+  width: 520px;
   height: 100px;
   text-align: center;
   padding-top: 30px;
   position: relative;
   margin: 0 auto;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Bungee', cursive;
   overflow: hidden;
   line-height: 150%;
 }
 
 .modal-header {
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-family: Helvetica;
   color: red;
   text-align: center;
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Bungee', cursive;
 }
 
 .close {
@@ -234,10 +240,15 @@ h3 {
   cursor: pointer;
 }
 
+/*.play-again {
+  background-color: yellow;
+  font-size: .5rem;
+  margin: 0 auto;
+}*/
+
 .flash {
   background-color: red;
 }
-
 
 .flash {
     -webkit-animation-name: flash-animation;
@@ -259,5 +270,47 @@ h3 {
     animation-name: flash-animation;
     animation-duration: 0.2s;
 }
+
+/*.lists {
+  width: 100%;
+  height: 45rem;
+  display: inline-block;
+  text-align: center;
+  margin-left: 12rem;
+  margin-top: 16.2em;
+  box-sizing: content-box;
+  position: relative;
+  min-width: 900px;
+}*/
+
+/*.song-list-column {
+  padding: .2rem;
+  background-color: #C9CFD1;
+  height: 20rem;
+  width: 25rem;
+  border: 1px solid black;
+  font-family: 'Cherry Swash', cursive;
+  border-radius: 3em;
+  display:  inline-block;
+  position: absolute;
+  left: 11rem;
+  z-index: -1;*/
+  /*float: left;*/
+/*}*/
+
+/*.artist-list-column {
+  padding: .2rem;
+  background-color: #C9CFD1;
+  height: 31rem;
+  width: 25rem;
+  border: 1px solid black;
+  border-radius: 3em;
+  display: inline-block;
+  position: absolute;
+  right: 11rem;
+  z-index: 0;*/
+  /*float: right;*/
+/*}*/
+
 
 
