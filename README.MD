@@ -15,4 +15,4 @@ Tech used:
 * CSS
 * Javascript (some JQuery)
 
-
+[Your turn to play the game!](https://kerby51.github.io/Celebrity-Match-Game/)
