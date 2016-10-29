@@ -177,3 +177,31 @@ function gameOver() {
 //     songInPlay.parentNode.removeChild(songInPlay);
 //   }
 // }
+
+
+
+
+
+
+
+
+
+// let blinkColumn = document.getElementsByClassName('song-list-column');
+// setTimeout(function() {
+//   document.getElementById('song-list-column').className = 'flash2';
+//   setTimeout(function() {
+//     document.getElementById('song-list-column').className = document.getElementById('song-list-column').className.replace('flash2', '');
+//   }, 200);
+// });
+// } else {
+//   let blinkColumn = document.getElementsByClassName('song-list-column');
+//   setTimeout(function() {
+//     document.getElementById('song-list-column').className = 'flash';
+//     setTimeout(function() {
+//       document.getElementById('song-list-column').className = document.getElementById('song-list-column').className.replace('flash', '');
+//     }, 200);
+//   });
+// }
+// }
+
+
