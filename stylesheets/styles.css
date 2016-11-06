@@ -1,15 +1,15 @@
 body {
-  background-color: #68C9E8;
+  background-color: rgb(255,255,254);
 }
 
 header {
   text-align: center;
   position: fixed;
-  margin-top: 0em;
+  margin-top: -.75rem;
   padding-top: 1em;
   padding-bottom: .5em;
   width: 100%;
-  background-color: #F0F4F5;
+  background-color: rgb(255,255,254);
   border-top: 3px dotted #000;
   border-bottom: 3px dotted #000;
   box-shadow: inset 0 -1px 0 0 #000, inset 0 1px 0 0 #000, 0 1px 0 0 #000, 0 -1px 0 0 #000;
@@ -21,13 +21,14 @@ h1 {
   text-align: center;
   margin-top: 1em;
   margin: 0 auto;
+  text-shadow: 3px 3px 3px cornflowerblue;
 }
 
 h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   padding-bottom: 0.75em;
   margin-top: -1em;
-  color: blue;
+  color: cornflowerblue;
 }
 
 #ear {
@@ -63,25 +64,30 @@ h3 {
 
 .song-list-column {
   padding: .2rem;
-  background-color: #C9CFD1;
+  /*background-color: #C9CFD1;*/
+  background-color: #6BB9F0;
   height: 20rem;
   width: 25rem;
   border: 1px solid black;
   float: left;
   /*padding: 1em;*/
   font-family: 'Cherry Swash', cursive;
-  border-radius: 3em;
-  top: 4rem;
+  border-radius: 1em;
+  margin-top: -.8rem;
+  box-shadow: 4px 4px 4px darkgray;
 }
 
 .artist-list-column {
   padding: .2rem;
-  background-color: #C9CFD1;
+  /*background-color: #C9CFD1;*/
+  background-color: #6BB9F0;
   height: 31rem;
   width: 25rem;
   border: 1px solid black;
   float: right;
-  border-radius: 3em;
+  border-radius: 1em;
+  margin-top: -.8rem;
+  box-shadow: 4px 4px 4px darkgray;
 }
 
 
@@ -107,6 +113,7 @@ h3 {
   border: 1px solid red;
   background-color: white;
   border-radius: .5em;
+  box-shadow: 4px 4px gray;
  /* width: 14em;
   height: 11em;*/
 }
@@ -119,14 +126,13 @@ h3 {
 #artist-list-title {
   font-size: 2em;
   font-family: 'Cherry Swash', cursive;
-  padding-top: 0.4em;
+  padding-top: 0.2em;
   padding-bottom: 0.3em;
-
 }
 
 .song-list-title {
   font-size: 2em;
-  padding-top: 0.4em;
+  padding-top: 0.2em;
   padding-bottom: 0.3em;
 }
 
@@ -140,6 +146,8 @@ h3 {
   background-color: red;
   color: white;
   text-align: center;
+  border-radius: 2px;
+  box-shadow: 3px 3px darkgray;
 }
 
 #song-in-play {
@@ -156,12 +164,14 @@ h3 {
 
 #score-box {
   border: 3px solid black;
+  border-radius: 2px;
   width: 130px;
   height: 100px;
   padding: 3px;
   position: absolute;
   left: 60px;
   bottom: 10px;
+  box-shadow: 2px 2px darkgray;
 }
 
 #score-box-header {
