@@ -102,7 +102,6 @@ function populateSong() {
   newSong.innerHTML = randomSong();
 }
 
-
 function artistClick() {
   for (let button of buttons) {
     button.addEventListener('click', checkAnswer);
@@ -114,13 +113,6 @@ function artistClick() {
     button.addEventListener('click', removeSongOfPlay);
   }
 }
- //  button.addEventListener('click', function(){
- //    checkAnswer();
- //    populateSong();
- //    removeSongOfPlay();
- //  });
- // }
-
 
 function removeSongOfPlay() {
   let songInPlay = body.querySelector('#song-in-play');
@@ -137,21 +129,22 @@ function checkAnswer() {
   if (event.target.innerText === activeSong.artist) {
     score += 1;
     document.getElementById('actual-score').innerHTML = score + '/10';
-    let $blinkColumn = $('.song-list-column');
-    setTimeout(function() {
-      $blinkColumn.addClass('flash2');
-      setTimeout(function() {
-        $blinkColumn.removeClass('flash2');
-      }, 200);
-    });
+    // let $blinkColumn = $('.song-list-column');
+    // setTimeout(function() {
+    //   $blinkColumn.addClass('flash2');
+    //   setTimeout(function() {
+    //     $blinkColumn.removeClass('flash2');
+    //   }, 200);
+    // });
   } else {
-    let $blinkColumn = $('.song-list-column');
-    setTimeout(function() {
-      $blinkColumn.addClass('flash');
-      setTimeout(function() {
-          $blinkColumn.removeClass('flash');
-      }, 200);
-    });
+    // let $blinkColumn = $('.song-list-column');
+    // setTimeout(function() {
+    //   $blinkColumn.addClass('flash');
+    //   setTimeout(function() {
+    //       $blinkColumn.removeClass('flash');
+    //   }, 200);
+    // });
+      return score;
   }
 }
 
