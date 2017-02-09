@@ -129,21 +129,21 @@ function checkAnswer() {
   if (event.target.innerText === activeSong.artist) {
     score += 1;
     document.getElementById('actual-score').innerHTML = score + '/10';
-    // let $blinkColumn = $('.song-list-column');
-    // setTimeout(function() {
-    //   $blinkColumn.addClass('flash2');
-    //   setTimeout(function() {
-    //     $blinkColumn.removeClass('flash2');
-    //   }, 200);
-    // });
+    let $blinkColumn = $('.song-list-column');
+    setTimeout(function() {
+      $blinkColumn.addClass('flash2');
+      setTimeout(function() {
+        $blinkColumn.removeClass('flash2');
+      }, 200);
+    });,
   } else {
-    // let $blinkColumn = $('.song-list-column');
-    // setTimeout(function() {
-    //   $blinkColumn.addClass('flash');
-    //   setTimeout(function() {
-    //       $blinkColumn.removeClass('flash');
-    //   }, 200);
-    // });
+    let $blinkColumn = $('.song-list-column');
+    setTimeout(function() {
+      $blinkColumn.addClass('flash');
+      setTimeout(function() {
+          $blinkColumn.removeClass('flash');
+      }, 200);
+    });
       return score;
   }
 }
