@@ -135,7 +135,7 @@ function checkAnswer() {
       setTimeout(function() {
         $blinkColumn.removeClass('flash2');
       }, 200);
-    });,
+    });
   } else {
     let $blinkColumn = $('.song-list-column');
     setTimeout(function() {
